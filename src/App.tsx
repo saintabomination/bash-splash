@@ -21,7 +21,7 @@ const App = (): JSX.Element => {
 
   const handleGeneration = () => {
     if (!outputRef.current) return;
-    outputRef.current.value = generateScript();
+    outputRef.current.value = generateScript(tiles);
   }
 
   const handleReset = () => {
