@@ -8,7 +8,7 @@ export const generateScript = (board: BoardType, newLine: boolean, outputColor: 
   const noColorString: string = '\\033[0m';
 
   output += `# Generated on ${getFormattedTime()}\n`;
-  output += '# https://website.com/\n\n';
+  output += '# https://saintabomination.github.io/bash-splash/\n\n';
 
   output += `COLOR='${colorString}'\n`;
   output += `NC='${noColorString}'\n`;
