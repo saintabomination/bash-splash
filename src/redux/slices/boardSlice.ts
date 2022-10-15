@@ -16,6 +16,9 @@ const boardSlice = createSlice({
   reducers: {
     generateBoardBase: (state, action: PayloadAction<{ width: number, height: number }>) => {
       state.tiles = new Array(action.payload.height).fill(new Array(action.payload.width).fill(false));
+    },
+    toggleTileActive: (state, action: PayloadAction<{ x: number, y: number }>) => {
+      state.tiles[action.payload.y][action.payload.x] = !state.tiles[action.payload.y][action.payload.x];
       console.log(state.tiles);
     },
   },

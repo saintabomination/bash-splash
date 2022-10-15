@@ -27,7 +27,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <h1>Bash Splash</h1>
-      <Board width={tiles[0]?.length ?? 0} height={tiles?.length ?? 0} />
+      <Board tiles={tiles} />
       <br />
       <button onClick={handleGeneration}>Generate</button><br /><br />
       <label htmlFor="output">Output:</label><br />

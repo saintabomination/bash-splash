@@ -1,26 +1,33 @@
 import Tile from './Tile';
 
 type Props = {
-  width?: number;
-  height?: number;
+  tiles: boolean[][];
 };
 
-const Board = ({ width = 8, height = 8 }: Props): JSX.Element =>
-  (
+const Board = ({ tiles }: Props): JSX.Element => {
+  return (
     <div>
-      {[...Array(height)].map((_, index) => (
+      {tiles && tiles.length > 0 && tiles.map((row, rowIndex) => (
         <div
-          key={index}
+          key={rowIndex}
           style={{
             display: 'flex',
           }}
         >
-          {[...Array(width)].map((_, index) => (
-            <Tile key={index} />
-          ))} 
+          {row && row.length > 0 && row.map((column, columnIndex) => (
+            <Tile
+              key={columnIndex}
+              enabled={column} 
+              position={{
+                x: columnIndex,
+                y: rowIndex,
+              }}
+            />
+          ))}
         </div>
       ))}
     </div>
   );
+}
 
 export default Board;
