@@ -2,9 +2,9 @@ import { getFormattedTime } from './timeFunctions';
 
 import type { BoardType } from '../typings/boardTypings';
 
-export const generateScript = (board: BoardType, newLine: boolean): string => {
+export const generateScript = (board: BoardType, newLine: boolean, outputColor: string): string => {
   let output: string = '#!/bin/bash\n\n';
-  const colorString: string = '\\033[0;31m';
+  const colorString: string = `\\033[${outputColor}m`;
   const noColorString: string = '\\033[0m';
 
   output += `# Generated on ${getFormattedTime()}\n`;

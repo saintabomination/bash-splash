@@ -13,6 +13,7 @@ const App = (): JSX.Element => {
   const widthRef = useRef<HTMLInputElement | null>(null);
   const heightRef = useRef<HTMLInputElement | null>(null);
   const newLineRef = useRef<HTMLInputElement | null>(null);
+  const colorRef = useRef<HTMLSelectElement | null>(null);
   const outputRef = useRef<HTMLTextAreaElement | null>(null);
   const { tiles } = useSelector((state: RootState) => state.board);
   const dispatch = useDispatch();
@@ -38,7 +39,8 @@ const App = (): JSX.Element => {
   const handleGeneration = () => {
     if (!outputRef.current) return;
     const newLine: boolean = newLineRef?.current?.checked ?? false;
-    outputRef.current.value = generateScript(tiles, newLine);
+    const color: string = colorRef?.current?.value ?? '1;37';
+    outputRef.current.value = generateScript(tiles, newLine, color);
   }
 
   const handleReset = () => {
@@ -62,9 +64,21 @@ const App = (): JSX.Element => {
         <button>Resize canvas</button><br /><br />
       </form>
       <Board tiles={tiles} />
-      <br />
+      <h2>Options</h2>
       <label htmlFor="newline">New line:</label>
-      <input type="checkbox" name="newline" ref={newLineRef} />
+      <input type="checkbox" name="newline" ref={newLineRef} /><br />
+      <label htmlFor="color">Color:</label>
+      <select name="color" ref={colorRef}>
+        <option value="0;30">Black</option>
+        <option value="0;31">Red</option>
+        <option value="0;32">Green</option>
+        <option value="0;33">Orange</option>
+        <option value="0;34">Blue</option>
+        <option value="0;35">Purple</option>
+        <option value="0;36">Cyan</option>
+        <option value="1;33">Yellow</option>
+        <option value="1;37">White</option>
+      </select><br /><br />
       <button onClick={handleGeneration}>Generate</button>
       <button onClick={handleReset}>Reset</button>
       <h2>Output</h2>
