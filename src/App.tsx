@@ -1,12 +1,15 @@
 import { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Board from './components/Board';
 import { generateBoardBase } from './redux/slices/boardSlice';
 import { generateScript } from './functions/generateScript';
 
+import type { RootState } from './redux/store';
+
 const App = (): JSX.Element => {
   const outputRef = useRef<HTMLTextAreaElement | null>(null);
+  const { tiles } = useSelector((state: RootState) => state.board);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <h1>Bash Splash</h1>
-      <Board width={12} height={8} />
+      <Board width={tiles[0]?.length ?? 0} height={tiles?.length ?? 0} />
       <br />
       <button onClick={handleGeneration}>Generate</button><br /><br />
       <label htmlFor="output">Output:</label><br />
