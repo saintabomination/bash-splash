@@ -1,7 +1,10 @@
+import Board from './components/Board';
+
 const App = (): JSX.Element =>
   (
     <>
-      <h1>Initial Commit</h1>
+      <h1>Bash Splash</h1>
+      <Board width={12} height={8} />
     </>
   );
 
