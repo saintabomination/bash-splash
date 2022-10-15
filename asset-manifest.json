@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/bash-splash/static/js/main.0172ad60.js",
+    "index.html": "/bash-splash/index.html",
+    "main.0172ad60.js.map": "/bash-splash/static/js/main.0172ad60.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.0172ad60.js"
+  ]
+}
