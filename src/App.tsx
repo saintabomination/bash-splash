@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Board from './components/Board';
+import Icon from './components/Icon';
 import { generateBoardBase, resetBoard } from './redux/slices/boardSlice';
 import { generateScript } from './functions/generateScript';
 
@@ -55,7 +56,10 @@ const App = (): JSX.Element => {
   return (
     <>
       <h1>Bash Splash</h1>
-      <h2>Sizes</h2>
+      <h2>
+        <Icon name="maximize" type="fas" />
+        Sizes
+      </h2>
       <form onSubmit={e => handleResize(e)}>
         <label htmlFor="width">Width:</label><br />
         <input type="number" name="width" ref={widthRef} required /><br />
@@ -64,7 +68,10 @@ const App = (): JSX.Element => {
         <button>Resize canvas</button><br /><br />
       </form>
       <Board tiles={tiles} />
-      <h2>Options</h2>
+      <h2>
+        <Icon name="gear" type="fas" />
+        Options
+      </h2>
       <label htmlFor="newline">New line:</label>
       <input type="checkbox" name="newline" ref={newLineRef} /><br />
       <label htmlFor="color">Color:</label>
@@ -81,7 +88,10 @@ const App = (): JSX.Element => {
       </select><br /><br />
       <button onClick={handleGeneration}>Generate</button>
       <button onClick={handleReset}>Reset</button>
-      <h2>Output</h2>
+      <h2>
+        <Icon name="file" type="fas" />
+        Output
+      </h2>
       <textarea
         name="output"
         cols={64}

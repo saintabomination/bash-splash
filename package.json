@@ -4,6 +4,11 @@
   "homepage": "https://saintabomination.github.io/bash-splash",
   "private": false,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.0",
+    "@fortawesome/free-regular-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -47,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-common-types": "^6.2.0",
     "gh-pages": "^4.0.0",
     "sass": "^1.55.0"
   }
