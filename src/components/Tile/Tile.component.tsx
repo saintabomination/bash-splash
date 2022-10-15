@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 
-import { toggleTileActive } from '../redux/slices/boardSlice';
+import { toggleTileActive } from '../../redux/slices/boardSlice';
 
-import type { TileType } from '../typings/boardTypings';
+import type { TileType } from '../../typings/boardTypings';
 
 const Tile = ({ enabled, position }: TileType): JSX.Element => {
   const dispatch = useDispatch();
