@@ -22,8 +22,11 @@ const boardSlice = createSlice({
     toggleTileActive: (state, action: PayloadAction<TileType['position']>) => {
       state.tiles[action.payload.y][action.payload.x] = !state.tiles[action.payload.y][action.payload.x];
     },
+    resetBoard: (state) => {
+      state.tiles = state.tiles.map(row => row.map(column => column = false));
+    },
   },
 });
 
-export const { generateBoardBase, toggleTileActive } = boardSlice.actions;
+export const { generateBoardBase, toggleTileActive, resetBoard } = boardSlice.actions;
 export default boardSlice.reducer;

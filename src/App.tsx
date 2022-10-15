@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Board from './components/Board';
-import { generateBoardBase } from './redux/slices/boardSlice';
+import { generateBoardBase, resetBoard } from './redux/slices/boardSlice';
 import { generateScript } from './functions/generateScript';
 
 import type { RootState } from './redux/store';
@@ -24,12 +24,17 @@ const App = (): JSX.Element => {
     outputRef.current.value = generateScript();
   }
 
+  const handleReset = () => {
+    dispatch(resetBoard());
+  }
+
   return (
     <>
       <h1>Bash Splash</h1>
       <Board tiles={tiles} />
       <br />
-      <button onClick={handleGeneration}>Generate</button><br /><br />
+      <button onClick={handleGeneration}>Generate</button>
+      <button onClick={handleReset}>Reset</button><br /><br />
       <label htmlFor="output">Output:</label><br />
       <textarea
         name="output"
