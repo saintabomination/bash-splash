@@ -8,6 +8,7 @@ import { generateScript } from './functions/generateScript';
 import type { RootState } from './redux/store';
 
 const App = (): JSX.Element => {
+  const newLineRef = useRef<HTMLInputElement | null>(null);
   const outputRef = useRef<HTMLTextAreaElement | null>(null);
   const { tiles } = useSelector((state: RootState) => state.board);
   const dispatch = useDispatch();
@@ -21,7 +22,8 @@ const App = (): JSX.Element => {
 
   const handleGeneration = () => {
     if (!outputRef.current) return;
-    outputRef.current.value = generateScript(tiles);
+    const newLine: boolean = newLineRef?.current?.checked ?? false;
+    outputRef.current.value = generateScript(tiles, newLine);
   }
 
   const handleReset = () => {
@@ -33,6 +35,8 @@ const App = (): JSX.Element => {
       <h1>Bash Splash</h1>
       <Board tiles={tiles} />
       <br />
+      <label htmlFor="newline">New line:</label>
+      <input type="checkbox" name="newline" ref={newLineRef} />
       <button onClick={handleGeneration}>Generate</button>
       <button onClick={handleReset}>Reset</button><br /><br />
       <label htmlFor="output">Output:</label><br />
