@@ -6,9 +6,9 @@ type Props = {
 const Board = ({ width = 8, height = 8 }: Props): JSX.Element =>
   (
     <div>
-      {[...Array(height)].map((value: undefined, index) => (
+      {[...Array(height)].map((_, index) => (
         <div key={index}>
-          {[...Array(width)].map((value: undefined, index) => (
+          {[...Array(width)].map((_, index) => (
             <button key={index}>O</button>
           ))} 
         </div>
