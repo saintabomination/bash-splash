@@ -19,10 +19,9 @@ const boardSlice = createSlice({
     },
     toggleTileActive: (state, action: PayloadAction<{ x: number, y: number }>) => {
       state.tiles[action.payload.y][action.payload.x] = !state.tiles[action.payload.y][action.payload.x];
-      console.log(state.tiles);
     },
   },
 });
 
-export const { generateBoardBase } = boardSlice.actions;
+export const { generateBoardBase, toggleTileActive } = boardSlice.actions;
 export default boardSlice.reducer;
