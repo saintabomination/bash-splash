@@ -45,6 +45,11 @@ const App = (): JSX.Element => {
     dispatch(resetBoard());
   }
 
+  const handleClipboard = () => {
+    if (!outputRef.current || !outputRef.current.value) return;
+    navigator.clipboard.writeText(outputRef.current.value);
+  }
+
   return (
     <>
       <h1>Bash Splash</h1>
@@ -65,12 +70,13 @@ const App = (): JSX.Element => {
       <h2>Output</h2>
       <textarea
         name="output"
-        cols={48}
+        cols={64}
         rows={16}
         style={{ resize: 'none' }}
         disabled
         ref={outputRef}
-      ></textarea>
+      ></textarea><br />
+      <button onClick={handleClipboard}>Copy to clipboard</button>
     </>
   );
 }

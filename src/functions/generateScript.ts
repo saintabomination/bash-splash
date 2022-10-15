@@ -11,16 +11,16 @@ export const generateScript = (board: BoardType, newLine: boolean): string => {
   output += '# https://website.com/\n\n';
 
   output += `COLOR='${colorString}'\n`;
-  output += `NC='${noColorString}'\n\n`;
+  output += `NC='${noColorString}'\n`;
 
   board.forEach(row => {
     let rowOutput: string = '';
     row.forEach(column => {
       rowOutput += column ? '\u2588\u2588' : '  ';
     });
-    output += `echo -e "\${COLOR}${rowOutput}\${NC}"\n`;
+    output += `\necho -e "\${COLOR}${rowOutput}\${NC}"`;
   });
-  if (newLine) output += 'echo \'\'';
+  if (newLine) output += '\necho \'\'';
 
   return output;
 }
