@@ -2,15 +2,9 @@ import { useDispatch } from 'react-redux';
 
 import { toggleTileActive } from '../redux/slices/boardSlice';
 
-type Props = {
-  enabled: boolean;
-  position: {
-    x: number;
-    y: number;
-  };
-}
+import type { TileType } from '../typings/boardTypings';
 
-const Tile = ({ enabled, position }: Props): JSX.Element => {
+const Tile = ({ enabled, position }: TileType): JSX.Element => {
   const dispatch = useDispatch();
 
   const handleToggleActive = () => {

@@ -1,7 +1,9 @@
 import Tile from './Tile';
 
+import type { BoardType } from '../typings/boardTypings';
+
 type Props = {
-  tiles: boolean[][];
+  tiles: BoardType;
 };
 
 const Board = ({ tiles }: Props): JSX.Element => {
