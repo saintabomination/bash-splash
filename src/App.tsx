@@ -1,10 +1,20 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Board from './components/Board';
+import { generateBoardBase } from './redux/slices/boardSlice';
 import { generateScript } from './functions/generateScript';
 
 const App = (): JSX.Element => {
   const outputRef = useRef<HTMLTextAreaElement | null>(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(generateBoardBase({
+      width: 12,
+      height: 8,
+    }));
+  }, [dispatch]);
 
   const handleGeneration = () => {
     if (!outputRef.current) return;
