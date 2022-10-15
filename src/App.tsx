@@ -1,12 +1,22 @@
-import Board from './components/Board';
+import { useRef } from 'react';
 
-const App = (): JSX.Element =>
-  (
+import Board from './components/Board';
+import { generateScript } from './functions/generateScript';
+
+const App = (): JSX.Element => {
+  const outputRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const handleGeneration = () => {
+    if (!outputRef.current) return;
+    outputRef.current.value = generateScript();
+  }
+
+  return (
     <>
       <h1>Bash Splash</h1>
       <Board width={12} height={8} />
       <br />
-      <button>Generate</button><br /><br />
+      <button onClick={handleGeneration}>Generate</button><br /><br />
       <label htmlFor="output">Output:</label><br />
       <textarea
         name="output"
@@ -14,8 +24,10 @@ const App = (): JSX.Element =>
         rows={16}
         style={{ resize: 'none' }}
         disabled
+        ref={outputRef}
       ></textarea>
     </>
   );
+}
 
 export default App;
