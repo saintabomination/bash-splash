@@ -4,6 +4,8 @@ import { toggleTileActive } from '../../redux/slices/boardSlice';
 
 import type { TileType } from '../../typings/boardTypings';
 
+import './Tile.styles.scss';
+
 const Tile = ({ enabled, position }: TileType): JSX.Element => {
   const dispatch = useDispatch();
 
@@ -13,11 +15,9 @@ const Tile = ({ enabled, position }: TileType): JSX.Element => {
 
   return (
     <div
+      className="tile"
       style={{
-        width: '32px',
-        height: '32px',
         backgroundColor: enabled ? '#282828' : '#dedede',
-        cursor: 'pointer',
       }}
       onClick={handleToggleActive}
     />

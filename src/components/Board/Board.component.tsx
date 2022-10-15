@@ -2,19 +2,19 @@ import Tile from '../Tile';
 
 import type { BoardType } from '../../typings/boardTypings';
 
+import './Board.styles.scss';
+
 type Props = {
   tiles: BoardType;
 };
 
 const Board = ({ tiles }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="board">
       {tiles && tiles.length > 0 && tiles.map((row, rowIndex) => (
         <div
+          className="row"
           key={rowIndex}
-          style={{
-            display: 'flex',
-          }}
         >
           {row && row.length > 0 && row.map((column, columnIndex) => (
             <Tile
