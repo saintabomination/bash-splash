@@ -6,6 +6,7 @@ import App from './App';
 import store from './redux/store';
 
 import './styles/reset.scss';
+import './styles/main.scss';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

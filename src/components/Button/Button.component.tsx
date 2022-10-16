@@ -1,3 +1,5 @@
+import './Button.styles.scss';
+
 type Props = {
   text: string;
   handler?: () => any;
@@ -5,7 +7,7 @@ type Props = {
 
 const Button = ({ text, handler }: Props): JSX.Element =>
   (
-    <button onClick={handler ?? undefined}>{text}</button>
+    <button className="button" onClick={handler ?? undefined}>{text}</button>
   );
 
 export default Button;
