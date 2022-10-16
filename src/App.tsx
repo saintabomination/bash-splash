@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Board from './components/Board';
 import Icon from './components/Icon';
+import Button from './components/Button';
 import { generateBoardBase, resetBoard } from './redux/slices/boardSlice';
 import { generateScript } from './functions/generateScript';
 
@@ -65,7 +66,7 @@ const App = (): JSX.Element => {
         <input type="number" name="width" ref={widthRef} required /><br />
         <label htmlFor="height">Height:</label><br />
         <input type="number" name="height" ref={heightRef} required /><br /><br />
-        <button>Resize canvas</button><br /><br />
+        <Button text="Resize canvas" /><br /><br />
       </form>
       <Board tiles={tiles} />
       <h2>
@@ -86,8 +87,8 @@ const App = (): JSX.Element => {
         <option value="1;33">Yellow</option>
         <option value="1;37">White</option>
       </select><br /><br />
-      <button onClick={handleGeneration}>Generate</button>
-      <button onClick={handleReset}>Reset</button>
+      <Button handler={handleGeneration} text="Generate" />
+      <Button handler={handleReset} text="Reset" />
       <h2>
         <Icon name="file" type="fas" />
         Output
@@ -100,7 +101,7 @@ const App = (): JSX.Element => {
         disabled
         ref={outputRef}
       ></textarea><br />
-      <button onClick={handleClipboard}>Copy to clipboard</button>
+      <Button handler={handleClipboard} text="Copy to clipboard" />
     </>
   );
 }
