@@ -5,6 +5,7 @@ import Board from './components/Board';
 import Icon from './components/Icon';
 import Button from './components/Button';
 import { generateBoardBase, resetBoard } from './redux/slices/boardSlice';
+import { toggleDarkMode } from './redux/slices/uiSlice';
 import { generateScript } from './functions/generateScript';
 
 import type { FormEvent } from 'react';
@@ -18,6 +19,7 @@ const App = (): JSX.Element => {
   const colorRef = useRef<HTMLSelectElement | null>(null);
   const outputRef = useRef<HTMLTextAreaElement | null>(null);
   const { tiles } = useSelector((state: RootState) => state.board);
+  const { darkModeActive } = useSelector((state: RootState) => state.ui);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +28,10 @@ const App = (): JSX.Element => {
       height: 8,
     }));
   }, [dispatch]);
+
+  const handleDarkModeToggle = () => {
+    dispatch(toggleDarkMode());
+  }
 
   const handleResize = (e: FormEvent) => {
     e.preventDefault();
@@ -55,8 +61,9 @@ const App = (): JSX.Element => {
   }
 
   return (
-    <>
+    <div className={`main-wrap${darkModeActive ? ' dark' : ''}`}>
       <h1>Bash Splash</h1>
+      <Button handler={handleDarkModeToggle} text="Dark mode toggle" />
       <h2 className="icon-title">
         <Icon name="maximize" type="fas" size={0.8} />
         Sizes
@@ -102,7 +109,7 @@ const App = (): JSX.Element => {
         ref={outputRef}
       ></textarea><br />
       <Button handler={handleClipboard} text="Copy to clipboard" />
-    </>
+    </div>
   );
 }
 
