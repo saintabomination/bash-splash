@@ -57,8 +57,8 @@ const App = (): JSX.Element => {
   return (
     <>
       <h1>Bash Splash</h1>
-      <h2>
-        <Icon name="maximize" type="fas" />
+      <h2 className="icon-title">
+        <Icon name="maximize" type="fas" size={0.8} />
         Sizes
       </h2>
       <form onSubmit={e => handleResize(e)}>
@@ -69,8 +69,8 @@ const App = (): JSX.Element => {
         <Button text="Resize canvas" /><br /><br />
       </form>
       <Board tiles={tiles} />
-      <h2>
-        <Icon name="gear" type="fas" />
+      <h2 className="icon-title">
+        <Icon name="gear" type="fas" size={0.8} />
         Options
       </h2>
       <label htmlFor="newline">New line:</label>
@@ -89,8 +89,8 @@ const App = (): JSX.Element => {
       </select><br /><br />
       <Button handler={handleGeneration} text="Generate" />
       <Button handler={handleReset} text="Reset" />
-      <h2>
-        <Icon name="file" type="fas" />
+      <h2 className="icon-title">
+        <Icon name="file" type="fas" size={0.8} />
         Output
       </h2>
       <textarea

@@ -9,5 +9,13 @@ html {
 }
 
 body {
+  padding: 1.2rem;
   font-size: 1.5rem;
+}
+
+.icon-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  gap: 1.2rem;
 }
